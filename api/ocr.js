@@ -1,5 +1,10 @@
 import Tesseract from 'tesseract.js';
 
+// Create a Tesseract.js worker
+const worker = await Tesseract.createWorker('eng', 1, {
+    logger: (m) => console.log(m)
+});
+
 // Main handler for the Vercel function
 module.exports = async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -23,10 +28,6 @@ module.exports = async (req, res) => {
 
         console.log('happened2')
 
-        // Create a Tesseract.js worker
-        const worker = await Tesseract.createWorker('eng', 1, {
-            logger: (m) => console.log(m)
-        });
 
         console.log('happened4')
 
