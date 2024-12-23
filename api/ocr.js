@@ -1,5 +1,4 @@
 import { createWorker } from 'tesseract.js';
-import { franc, francAll } from 'franc'
 
 // Main handler for the Vercel function
 module.exports = async (req, res) => {
@@ -9,11 +8,14 @@ module.exports = async (req, res) => {
 
   try {
     // Parse the incoming request body for the Base64 image
-    const { image } = req.body;
+    const { imageBase64 } = req.body;
 
-    if (!image) {
-      return res.status(400).json({ error: 'Image is required.' });
+    if (!imageBase64) {
+      return res.status(400).json({ error: 'ImageBase64 is required.' });
     }
+
+    // Decode the Base64 string into a Buffer
+    const imageBuffer = Buffer.from(imageBase64, 'base64');
 
     // Create a Tesseract.js worker
     const worker = await createWorker('eng');
