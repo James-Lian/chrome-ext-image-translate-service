@@ -30,9 +30,9 @@ module.exports = async (req, res) => {
         // await worker.terminate();
 
         // Send back the recognized text
-        text = "BRO COME ON"
+        let text = "BRO COME ON"
         res.status(200).json({ text });
     } catch (error) {
-        res.status(500).json({ error: "wait why tho" });
+        res.status(500).json({ error: error.message });
     }
     };
