@@ -24,7 +24,10 @@ module.exports = async (req, res) => {
         console.log('happened2')
 
         // Create a Tesseract.js worker
-        const worker = await Tesseract.createWorker('eng');
+        const worker = await Tesseract.createWorker('eng', 1, {
+            logger: (m) => console.log(m),
+            corePath: "https://cdn.example.com/wasm/tesseract-core-simd.wasm"
+        });
 
         console.log('happened4')
 
