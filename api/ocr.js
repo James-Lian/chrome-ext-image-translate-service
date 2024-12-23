@@ -33,6 +33,6 @@ module.exports = async (req, res) => {
         text = "BRO COME ON"
         res.status(200).json({ text });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: "wait why tho" });
     }
     };
