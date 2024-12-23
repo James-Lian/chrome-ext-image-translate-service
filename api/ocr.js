@@ -1,4 +1,4 @@
-const Tesseract = require('tesseract.js');
+import Tesseract from 'tesseract.js';
 
 // Main handler for the Vercel function
 module.exports = async (req, res) => {
@@ -26,8 +26,8 @@ module.exports = async (req, res) => {
         // Create a Tesseract.js worker
         const worker = await Tesseract.createWorker('eng', 1, {
             logger: (m) => console.log(m),
-            workerPath: "https://cdn.example.com/wasm/tesseract-core-simd.wasm", 
-            corePath: "https://cdn.example.com/wasm/tesseract-core-simd.wasm"
+            workerPath: "https://cdn.jsdelivr.net/npm/tesseract.js/dist/worker.min.js", 
+            corePath: "https://cdn.jsdelivr.net/npm/tesseract-wasm/dist/lib.min.js"
         });
 
         console.log('happened4')
