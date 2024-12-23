@@ -14,20 +14,32 @@ module.exports = async (req, res) => {
     try {
         // Parse the incoming request body for the Base64 image
         const { inputImage } = req.body;
+        
+        console.log('happened')
 
         if (!inputImage) {
             return res.status(400).json({ error: 'ImageBase64 is required.' });
         }
 
+        console.log('happened2')
+
         // Decode the Base64 string into a Buffer
         const imageBuffer = Buffer.from(inputImage, 'base64');
+
+        console.log('happened3')
 
         // Create a Tesseract.js worker
         const worker = await createWorker('eng');
 
+        console.log('happened4')
+
         const { data: { text } } = await worker.recognize(imageBuffer);
 
+        console.log('happened5')
+
         await worker.terminate();
+
+        console.log('happened6')
 
         // Send back the recognized text
         res.status(200).json({ text });
