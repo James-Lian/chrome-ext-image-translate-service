@@ -1,4 +1,4 @@
-import { createWorker } from 'tesseract.js';
+import Tesseract from 'tesseract.js';
 
 // Main handler for the Vercel function
 module.exports = async (req, res) => {
@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
         console.log('happened2')
 
         // Create a Tesseract.js worker
-        const worker = await createWorker('eng');
+        const worker = await Tesseract.createWorker('eng');
 
         console.log('happened4')
 
