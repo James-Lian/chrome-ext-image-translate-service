@@ -1,8 +1,11 @@
 {
   "name": "chrome-ext-ocr-service",
   "version": "1.0.0",
+  "description": "An serverless function for an OCR service",
   "main": "api/ocr.js",
+  "author": "James Lian",
   "dependencies": {
-    "tesseract.js": "^5.1.1"
+    "tesseract.js": "^5.1.1",
+    "tesseract.js-core": "^5.1.1"
   }
 }
